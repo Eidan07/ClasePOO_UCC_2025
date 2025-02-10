@@ -1,4 +1,4 @@
-public class condi {
+public class Condicionales {
     public static void main (String []args){
         int numero = -5;
         if (numero > 0){
