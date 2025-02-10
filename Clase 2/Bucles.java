@@ -1,9 +1,20 @@
 public class Bucles {
     public static void main (String[] args){
 
-        //
-        for(int i = 1; i <= 5; i++){
-            System.out.println(i + ": Pogramación Orientaba a Objetos");
+        //for
+        
+        for(int i = 1; i <= 5; i++){    
+        System.out.println(i + ": Pogramación Orientaba a Objetos");
+        }
+        
+        System.out.println("------------------------------------");
+
+        //while
+        
+        int j = 1;
+        while(j <= 5 ){
+            System.out.println(j + ": POO");
+            j++;
         }
     }
 }
