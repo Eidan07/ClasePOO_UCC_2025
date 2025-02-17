@@ -23,6 +23,15 @@ public class Ejercicio1 {
              for(int i = 0; i < b.length; i++){
                 System.out.println("b[" + i +"]=" + b[i]);
         }
+        //Sumar los elementos del arreglo
+        int suma = 0;
+        for (int i = 0; i < b.length; i++) {
+            suma = suma + b[i];
+        }
+
+        System.out.println("La suma de los " + n + " elementos del arreglo es: " + suma);
+
+        leer.close();
 
 
     }
