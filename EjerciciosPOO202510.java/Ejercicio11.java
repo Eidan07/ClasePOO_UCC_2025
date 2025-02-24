@@ -5,13 +5,18 @@ public class Ejercicio3{
         //Creacion del arreglo a de enteros n elementos
       
         //declaración del arreglo del tamaño
-        
-        int n = (int) (Math.random() * (30 + 15)) + 15;
+        int n = (int) (Math.random() * (30 - 15)) + 15;
         int[] a = new int[n];
         
         //Llenar el arreglo con numeros comprendidos entre -2' y 2'
         for(int i = 0; i < a.length; i++){
-            a[i] = (int) (Math.random() * (20 + (-20))) + (-20);
-        }   
+            a[i] = (int) (Math.random() * (20 + 20)) -20;
+        } 
+        
+    //Mostrar el arreglo para validar que se estan guardando los elementos
+        for(int i = 0; i < a.length; i++) {
+            System.out.println("I" + a[i]);
+        }
+        System.out.println();     
     }
 }
