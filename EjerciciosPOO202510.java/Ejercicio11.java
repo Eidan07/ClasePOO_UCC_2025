@@ -1,4 +1,4 @@
-public class Ejercicio3{
+public class Ejercicio11{
     public static void main (String[] args){
         /* Dado un arreglo A de N elementos se desea generar tres arreglos 
         que contengan los elementos negativos, cero y positivos de arreglo inicial. */
@@ -15,7 +15,7 @@ public class Ejercicio3{
         
     //Mostrar el arreglo para validar que se estan guardando los elementos
         for(int i = 0; i < a.length; i++) {
-            System.out.println("I" + a[i]);
+            System.out.println("" + a[i]);
         }
         System.out.println();     
     }
