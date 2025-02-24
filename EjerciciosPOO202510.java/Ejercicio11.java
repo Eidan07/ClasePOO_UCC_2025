@@ -17,6 +17,18 @@ public class Ejercicio11{
         for(int i = 0; i < a.length; i++) {
             System.out.println("" + a[i]);
         }
-        System.out.println();     
+        System.out.println();
+
+        //Se va a recorrer el arreglo para determinar cuántos números son positivos, negativos y cero
+        int contadorPositivos =0, contadorNegativos = 0, contadorCeros =0;
+        for(int i = 0; i < a.length; i++){
+            if(a[i] > 0); {
+                contadorPositivos++;
+            }else if (a[i] < 0);{
+                contadorNegativos++;
+            }else{
+                contadorCeros++;
+            }
+        }
     }
 }
