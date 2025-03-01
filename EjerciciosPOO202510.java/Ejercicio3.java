@@ -11,9 +11,9 @@ public class Ejercicio3 {
 
         for (int i = 0; i < numeros.length; i++){
             if ( i % 2 == 0){
-                i += sumaPares;
+                sumaPares += i;
             }else{
-                i += sumaImpares;
+                sumaImpares += i;
             }
         
             System.out.println("Suma de números pares: " + sumaPares);
