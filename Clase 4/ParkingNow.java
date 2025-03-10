@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 public class ParkingNow {
-    public void main(String[] args){
+    public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         String[] placas = new String[20];
         int opcion;
