@@ -33,7 +33,7 @@ public class Estudiante {
         this.nombre = nombre;
     }
 
-    public String getApellido(Sting apellido) {
+    public String getApellido(String apellido) {
         return apellido;
     }
 
