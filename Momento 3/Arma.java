@@ -1,8 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
-
 // Clase Padre Arma
-abstract class Arma {
+class Arma {
     protected String nombre;
     protected int dano;
     protected Random rand;
@@ -13,9 +12,13 @@ abstract class Arma {
         this.rand = new Random();
     }
     
-    public abstract int usar(Personaje atacante, Personaje defensor);
+    public int usar(Personaje atacante, Personaje defensor) {
+        System.out.println(atacante.getNombre() + " usa " + nombre);
+        return dano;
+    }
     
     public String getNombre() {
         return nombre;
     }
 }
+
