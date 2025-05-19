@@ -1,55 +1,70 @@
-import java.util.Random;
-import java.util.Scanner;
 class Personaje {
     private String nombre;
     private int puntosDeVida;
-    private final int MAX_DANO = 80;
-    private final int MIN_DANO = 60;
-    private final int BOLA_DE_FUEGO = 100; //Se añadió un ataque especial
-    
-    //Constructor para inicializar los datos del personaje
+    private final int BOLA_DE_FUEGO = 100; // Ataque especial
+    private Espada espada; // Arma para causar daño
+    private Escudo escudo; // Arma para bloquear el daño
+    private boolean escudoActivo;
     
     public Personaje(String nombre) {
-    this.nombre = nombre;
-    this.puntosDeVida = 300; // Todos comienzan con 300 puntos de vida
-}
+        this.nombre = nombre;
+        this.puntosDeVida = 500; // los jugadores tienen 500 de vida cada uno
+        this.espada = new Espada();
+        this.escudo = new Escudo();
+        this.escudoActivo = false;
+    }
 
-    // Metodo para realizar un ataque a otro personaje
     public void atacar(Personaje oponente) {
-    Random rand = new Random();
-    int dano = rand.nextInt((MAX_DANO - MIN_DANO) + 1) + MIN_DANO; // Dano entre 80 y 60
-    oponente.recibirDano(dano);
-    System.out.println(this.nombre + " ataca a " + oponente.getNombre() + " causando " + dano + " puntos de dano.");
+        if (escudoActivo) {
+            System.out.println(this.nombre + " no puede atacar porque tiene el escudo equipado");
+            return;
+        }
+        int dano = espada.usar(this, oponente);
+        oponente.recibirDano(dano);
     }
 
-    //Metodo para lanzar una bola de fuego
-public void bolaDeFuego(Personaje oponente) {
-    oponente.recibirDano(BOLA_DE_FUEGO);
-    System.out.println(this.nombre + " lanza una BOLA DE FUEGO contra " + oponente.getNombre() + " causando " + BOLA_DE_FUEGO + " puntos de daño.");
+    public void activarEscudo() {
+        this.escudoActivo = true;
+        System.out.println(this.nombre + " equipa el escudo para el próximo ataque ");
     }
 
-    //Metodo para recibir daño
+    public void desactivarEscudo() {
+        this.escudoActivo = false;
+    }
+
+    public void bolaDeFuego(Personaje oponente) {
+        if (escudoActivo) {
+            System.out.println(this.nombre + " no puede lanzar bola de fuego con el escudo equipado ");
+            return;
+        }
+        oponente.recibirDano(BOLA_DE_FUEGO);
+        System.out.println(this.nombre + " lanza una BOLA DE FUEGO contra " + oponente.getNombre() + " causando " + BOLA_DE_FUEGO + " puntos de daño.");
+    }
+
     public void recibirDano(int dano) {
-    this.puntosDeVida-= dano;
+        if (escudoActivo) {
+            dano = escudo.usar(this, null); // El escudo puede bloquear el daño
+            desactivarEscudo();
+        }
+        this.puntosDeVida -= dano;
         if (this.puntosDeVida < 0) {
-        this.puntosDeVida = 0; // No se puede tener menos de 0 puntos de vida
-    }
+            this.puntosDeVida = 0;
+        }
     }
 
-    // Verifica si el personaje sigue vivo
     public boolean estaVivo() {
-    return this.puntosDeVida > 0;
+        return this.puntosDeVida > 0;
     }
 
-    // Devuelve el nombre del personaje
     public String getNombre() {
-    return this.nombre;
-}
-
-    // Devuelve los puntos de vida actuales
-    public int getPuntosDeVida() {
-    return this.puntosDeVida;
+        return this.nombre;
     }
 
+    public int getPuntosDeVida() {
+        return this.puntosDeVida;
+    }
 
+    public boolean tieneEscudoActivo() {
+        return escudoActivo;
+    }
 }
